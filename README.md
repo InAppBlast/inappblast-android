@@ -17,12 +17,14 @@
 				super.onCreate();
 				...
 				AppBlast.initSharedInstance(<project_key>, this);
-				AppBlast.getSharedInstance().setUserIdIfNotSet(<user_id>);
-				AppBlast.getSharedInstance().setLogLevel(AppBlast.LL_ALL);
 			}
 		}
 
-4. In AndroidManifest file:
+4. To identify your user within InAppBlast (either you use user authentication method or no authentication at all), put the following line where appropriate (as a way of "identifying" your user inside InAppBlast object).
+
+		AppBlast.getSharedInstance().setUserIdIfNotSet(<user_id>);
+
+5. In AndroidManifest file:
 	Add ActBlast activity
 
 		...
@@ -43,7 +45,7 @@
 			android:name="MyApplication"
 			...
 
-5. During runtime all activities that goes to foreground should be registered with AppBlast instance. There is two ways to do that.
+6. During runtime all activities that goes to foreground should be registered with AppBlast instance. There is two ways to do that.
 	In each activity override onResume() and onPause() methods. And call AppBlast.getSharedInstance().setBlastPoint();
 
 		@Override
@@ -103,7 +105,7 @@
 			public void onActivityDestroyed(Activity activity) {}
 		}
 
-6. If you want to manage Blast actions manually, just implement OnBlastActionListener interface from you class.
+7. If you want to manage Blast actions manually, just implement OnBlastActionListener interface from you class.
 
 		public class MyApplication extends Application implements OnBlastActionListener {
 			...
@@ -122,3 +124,7 @@
 			}
 			...
 		}
+
+8. You can change InAppBlast log level by calling setLogLevel method.
+
+		AppBlast.getSharedInstance().setLogLevel(AppBlast.LL_ALL); // or AppBlast.LL_NO or AppBlast.LL_ERROR
