@@ -7,37 +7,21 @@
 	In Library section click on Add… button select InAppBlast library and press Ok button
 	Now InAppBlast library added to the project.
 
-2.  Library usage
+2. Library usage.
 	Library can be used in application with minimal API level 8. 
 	In order to use library the following steps must be accomplished:
 
-3. Create subclass of Application class. Implement in this class OnBlastEventListener interface. Override onCreate method and initialize AppBlast in this method.
+3. Create subclass of Application class. Override onCreate method and initialize AppBlast in this method.
 
 		public class MyApplication extends Application implements OnBlastActionListener {
 			    
 			@Override
 			public void onCreate() {
 				super.onCreate();
-				// Initialize
-				AppBlast.initSharedInstance(<project_key>, this);
-				// Set user id
-				AppBlast.getSharedInstance().setUserIdIfNotSet(<user_id>);
-				// Set log level
-				AppBlast.getSharedInstance().setLogLevel(AppBlast.LL_ALL);
-			}
-			    
-			@Override
-			public void onBlastAction(int action, Object... params) {
-				switch (action) {
-					case OnBlastActionListener.ACTION_POSITIVE:
-						String url = (String) params[0];
-						Log.i("In application action result", "CTA URL = " + url);
-						break;
 
-					case OnBlastActionListener.ACTION_NEGATIVE:
-						Log.i("In application action result", "Closed or back pressed");
-						break;
-				}	 
+				AppBlast.initSharedInstance(<project_key>, this);
+				AppBlast.getSharedInstance().setUserIdIfNotSet(<user_id>);
+				AppBlast.getSharedInstance().setLogLevel(AppBlast.LL_ALL);
 			}
 		}
 
@@ -78,34 +62,17 @@
 
 	- Starting from API level 14 we can use Application.ActivityLifecycleCallbacks interface that can help register foreground applications with AppBlast instance. Implement ActivityLifecycleCallbacks interface and register that implementation with Application.
 
-		public class MyApplication extends Application implements OnBlastActionListener, ActivityLifecycleCallbacks {
+		public class MyApplication extends Application implements ActivityLifecycleCallbacks {
 
 			@Override
 			public void onCreate() {
 				super.onCreate();
-				// AppBlastInitialization
+
 				AppBlast.initSharedInstance(<project_key>, this);
 				AppBlast.getSharedInstance().setUserIdIfNotSet(<user_id>);
 				AppBlast.getSharedInstance().setLogLevel(AppBlast.LL_ALL);
 
-				// Register ActivityLifecycleCallbacks
 				registerActivityLifecycleCallbacks(this);
-			}
-
-			/*
-			 * Blast action listener
-			 */
-			@Override
-			public void onBlastAction(int action, Object... params) {
-				switch (action) {
-				case OnBlastActionListener.ACTION_POSITIVE:
-					// On positive action
-					break;
-
-				case OnBlastActionListener.ACTION_NEGATIVE:
-					// On negative action
-					break;
-				}
 			}
 
 			/*
@@ -138,4 +105,21 @@
 			public void onActivityDestroyed(Activity activity) {}
 		}
 
-	- If you don't want to manage Blast actions manually, just remove OnBlastActionListener-interface implementation from you class.
+6. If you want to manage Blast actions manually, just implement OnBlastActionListener-interface from you class.
+
+		public class MyApplication extends Application implements OnBlastActionListener {
+
+			@Override
+			public void onBlastAction(int action, Object... params) {
+				switch (action) {
+					case OnBlastActionListener.ACTION_POSITIVE:
+						String url = (String) params[0];
+						Log.i("In application action result", "CTA URL = " + url); // for example
+						break;
+
+					case OnBlastActionListener.ACTION_NEGATIVE:
+						Log.i("In application action result", "Closed or back pressed"); // for example
+						break;
+				}	 
+			}
+		}
