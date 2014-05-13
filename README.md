@@ -7,9 +7,7 @@
 	In Library section click on Add… button select InAppBlast library and press Ok button.
 	Now InAppBlast library added to the project.
 
-2. Library usage.
-	Library can be used in application with minimal API level 8. 
-	In order to use library the following steps must be accomplished:
+2. Library can be used in application with minimal API level 8.
 
 3. Create subclass of Application class. Override onCreate method and initialize AppBlast in this method.
 
@@ -25,24 +23,25 @@
 		}
 
 4. In AndroidManifest file:
-	Add ActBlast activity 
+	Add ActBlast activity
 
 		...
 		<activity android:name="com.inappblast.ActBlast"></activity>
 		...
 
-	Add following permissions 
+	Add following permissions
 
 		...
 		<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 		<uses-permission android:name="android.permission.INTERNET"/>
 		...
 
-	Use subclassed Application class. (In application tag set name attribute) 
+	Use subclassed Application class. (In application tag set name attribute)
 
 		...
-		<application android:name="MyApplication"
-		...
+		<application
+			android:name="MyApplication"
+			...
 
 5. During runtime all activities that goes to foreground should be registered with AppBlast instance. There is two ways to do that.
 	In each activity override onResume() and onPause() methods. And call AppBlast.getSharedInstance().setBlastPoint();
