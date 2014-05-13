@@ -41,7 +41,7 @@
 			}
 		}
 
-2.2. In AndroidManifest file:
+4. In AndroidManifest file:
 	- Add ActBlast activity 
 
 		...
@@ -61,7 +61,7 @@
 		<application android:name="MyApplication"
 		...
 
-2.3. During runtime all activities that goes to foreground should be registered with AppBlast instance. There is two ways to do that.
+5. During runtime all activities that goes to foreground should be registered with AppBlast instance. There is two ways to do that.
 	- In each activity override onResume() and onPause() methods. And call AppBlast.getSharedInstance().setBlastPoint();
 
 		@Override
