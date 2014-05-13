@@ -11,14 +11,14 @@
 	Library can be used in application with minimal API level 8. 
 	In order to use library the following steps must be accomplished:
 
-2.1. Create subclass of Application class. Implement in this class OnBlastEventListener interface. Override onCreate method and initialize AppBlast in this method.
+3. Create subclass of Application class. Implement in this class OnBlastEventListener interface. Override onCreate method and initialize AppBlast in this method.
 
 		public class MyApplication extends Application implements OnBlastActionListener {
 			    
 			@Override
 			public void onCreate() {
 				super.onCreate();
-				//Initialize
+				// Initialize
 				AppBlast.initSharedInstance(<project_key>, this);
 				// Set user id
 				AppBlast.getSharedInstance().setUserIdIfNotSet(<user_id>);
