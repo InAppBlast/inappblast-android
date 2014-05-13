@@ -17,6 +17,7 @@
 			@Override
 			public void onCreate() {
 				super.onCreate();
+				...
 				AppBlast.initSharedInstance(<project_key>, this);
 				AppBlast.getSharedInstance().setUserIdIfNotSet(<user_id>);
 				AppBlast.getSharedInstance().setLogLevel(AppBlast.LL_ALL);
@@ -64,11 +65,10 @@
 			@Override
 			public void onCreate() {
 				super.onCreate();
-
+				...
 				AppBlast.initSharedInstance(<project_key>, this);
 				AppBlast.getSharedInstance().setUserIdIfNotSet(<user_id>);
 				AppBlast.getSharedInstance().setLogLevel(AppBlast.LL_ALL);
-
 				registerActivityLifecycleCallbacks(this);
 			}
 
@@ -105,6 +105,7 @@
 6. If you want to manage Blast actions manually, just implement OnBlastActionListener-interface from you class.
 
 		public class MyApplication extends Application implements OnBlastActionListener {
+			...
 			@Override
 			public void onBlastAction(int action, Object... params) {
 				switch (action) {
@@ -116,6 +117,7 @@
 					case OnBlastActionListener.ACTION_NEGATIVE:
 						Log.i("In application action result", "Closed or back pressed"); // for example
 						break;
-				}	 
+				}
 			}
+			...
 		}
