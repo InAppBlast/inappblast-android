@@ -9,7 +9,7 @@
 
 2. Library can be used in application with minimal API level 8.
 
-3. Get your \<project_key\> string (just drop us an email to hi@pushpanel.io to get your key).
+3. Get your \<project_key\> string (summon a human for help at help@inappblast.com to get your key).
 
 4. In all files where you want to use InAppBlast, import it first by adding the following line to your code:
 
