@@ -1,15 +1,17 @@
 ## Tutorial
 
 1. Add library to project.
-	File -> Import… -> General -> Existing project into workspace.
+	File -> Import... -> General -> Existing project into workspace.
 	Select root directory of InAppBlast library by pressing Browse... button, then click on Finish button.
 	Now select in Package explorer Your project where you going to add InAppBlast library. On Eclipse menu bar Project -> Properties -> Android.
-	In Library section click on Add… button select InAppBlast library and press Ok button.
+	In Library section click on Add... button select InAppBlast library and press Ok button.
 	Now InAppBlast library added to the project.
 
 2. Library can be used in application with minimal API level 8.
 
-3. Create subclass of Application class. Override onCreate method and initialize AppBlast in this method.
+3. Get your <project_key> string (just drop us an email to hi@pushpanel.io to get your key).
+
+4. Create subclass of Application class. Override onCreate method and initialize AppBlast in this method.
 
 		public class MyApplication extends Application {
 			@Override
@@ -20,32 +22,26 @@
 			}
 		}
 
-4. To identify your user within InAppBlast (either you use user authentication method or no authentication at all), put the following line where appropriate (as a way of "identifying" your user inside InAppBlast object).
+5. To identify your user within InAppBlast (either you use user authentication method or no authentication at all), put the following line where appropriate (as a way of "identifying" your user inside InAppBlast object).
 
 		AppBlast.getSharedInstance().setUserIdIfNotSet(<user_id>);
 
-5. In AndroidManifest file:
+6. In AndroidManifest file:
 	Add ActBlast activity
 
-		...
 		<activity android:name="com.inappblast.ActBlast"></activity>
-		...
 
 	Add following permissions
 
-		...
 		<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 		<uses-permission android:name="android.permission.INTERNET"/>
-		...
 
 	Use subclassed Application class. (In application tag set name attribute)
 
-		...
 		<application
 			android:name="MyApplication"
-			...
 
-6. During runtime all activities that goes to foreground should be registered with AppBlast instance. There is two ways to do that.
+7. During runtime all activities that goes to foreground should be registered with AppBlast instance. There is two ways to do that.
 	In each activity override onResume() and onPause() methods. And call AppBlast.getSharedInstance().setBlastPoint();
 
 		@Override
@@ -105,7 +101,7 @@
 			public void onActivityDestroyed(Activity activity) {}
 		}
 
-7. If you want to manage Blast actions manually, just implement OnBlastActionListener interface from you class.
+8. If you want to manage Blast actions manually, just implement OnBlastActionListener interface from you class.
 
 		public class MyApplication extends Application implements OnBlastActionListener {
 			...
@@ -125,6 +121,6 @@
 			...
 		}
 
-8. You can change InAppBlast log level by calling setLogLevel method.
+9. You can change InAppBlast log level by calling setLogLevel method.
 
 		AppBlast.getSharedInstance().setLogLevel(AppBlast.LL_ALL); // or AppBlast.LL_NO or AppBlast.LL_ERROR
