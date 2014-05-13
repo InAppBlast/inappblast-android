@@ -72,6 +72,8 @@
 				registerActivityLifecycleCallbacks(this);
 			}
 
+			...
+
 			/*
 			 * Activity lifecycle callbacks
 			 */
@@ -102,7 +104,7 @@
 			public void onActivityDestroyed(Activity activity) {}
 		}
 
-6. If you want to manage Blast actions manually, just implement OnBlastActionListener-interface from you class.
+6. If you want to manage Blast actions manually, just implement OnBlastActionListener interface from you class.
 
 		public class MyApplication extends Application implements OnBlastActionListener {
 			...
