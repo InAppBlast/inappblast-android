@@ -128,3 +128,5 @@
 10. You can change InAppBlast log level by calling setLogLevel method.
 
 		AppBlast.getSharedInstance().setLogLevel(AppBlast.LL_ALL); // or LL_NO or LL_ERROR
+
+11. Still having questions? Summon a human at help@inappblast.com
