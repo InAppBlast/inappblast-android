@@ -30,6 +30,10 @@
 
 		AppBlast.getSharedInstance().setUserIdIfNotSet(<user_id>);
 
+	For example, if you don't use user authentication, you can identify your user right away after calling initSharedInstance from section 5 of this tutorial. If you use user authentication, then it's best to call setUserIdIfNotSet right after registering/authorizing your user inside your app.
+
+	As \<user_id\> you can use your user ID from your database. If you don't have backend, then you can use whatever you want as user identifier, for example, device ID.
+
 7. In AndroidManifest file:
 	Add ActBlast activity
 
