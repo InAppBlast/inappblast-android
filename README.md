@@ -13,7 +13,7 @@
 
 3. Create subclass of Application class. Override onCreate method and initialize AppBlast in this method.
 
-		public class MyApplication extends Application implements OnBlastActionListener {
+		public class MyApplication extends Application {
 			@Override
 			public void onCreate() {
 				super.onCreate();
