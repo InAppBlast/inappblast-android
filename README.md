@@ -11,7 +11,11 @@
 
 3. Get your \<project_key\> string (just drop us an email to hi@pushpanel.io to get your key).
 
-4. Create subclass of Application class. Override onCreate method and initialize AppBlast in this method.
+4. In all files where you want to use InAppBlast, import it first by adding the following line to your code:
+
+		import com.inappblast.AppBlast;
+
+5. Create subclass of Application class. Override onCreate method and initialize AppBlast in this method.
 
 		public class MyApplication extends Application {
 			@Override
@@ -22,11 +26,11 @@
 			}
 		}
 
-5. To identify your user within InAppBlast (either you use user authentication method or no authentication at all), put the following line where appropriate (as a way of "identifying" your user inside InAppBlast object).
+6. To identify your user within InAppBlast (either you use user authentication method or no authentication at all), put the following line where appropriate (as a way of "identifying" your user inside InAppBlast object).
 
 		AppBlast.getSharedInstance().setUserIdIfNotSet(<user_id>);
 
-6. In AndroidManifest file:
+7. In AndroidManifest file:
 	Add ActBlast activity
 
 		<activity android:name="com.inappblast.ActBlast"></activity>
@@ -41,7 +45,7 @@
 		<application
 			android:name="MyApplication"
 
-7. During runtime all activities that goes to foreground should be registered with AppBlast instance. There is two ways to do that.
+8. During runtime all activities that goes to foreground should be registered with AppBlast instance. There is two ways to do that.
 	In each activity override onResume() and onPause() methods. And call AppBlast.getSharedInstance().setBlastPoint();
 
 		@Override
@@ -101,7 +105,7 @@
 			public void onActivityDestroyed(Activity activity) {}
 		}
 
-8. If you want to manage Blast actions manually, just implement OnBlastActionListener interface from you class.
+9. If you want to manage Blast actions manually, just implement OnBlastActionListener interface from you class.
 
 		public class MyApplication extends Application implements OnBlastActionListener {
 			...
@@ -121,6 +125,6 @@
 			...
 		}
 
-9. You can change InAppBlast log level by calling setLogLevel method.
+10. You can change InAppBlast log level by calling setLogLevel method.
 
 		AppBlast.getSharedInstance().setLogLevel(AppBlast.LL_ALL); // or LL_NO or LL_ERROR
