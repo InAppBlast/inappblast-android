@@ -11,7 +11,7 @@
 	Library can be used in application with minimal API level 8. 
 	In order to use library the following steps must be accomplished:
 
-2.1 Create subclass of Application class. Implement in this class OnBlastEventListener interface. Override onCreate method and initialize AppBlast in this method.
+2.1. Create subclass of Application class. Implement in this class OnBlastEventListener interface. Override onCreate method and initialize AppBlast in this method.
 
 		public class MyApplication extends Application implements OnBlastActionListener {
 			    
@@ -41,7 +41,7 @@
 			}
 		}
 
-2.2 In AndroidManifest file:
+2.2. In AndroidManifest file:
 	- Add ActBlast activity 
 
 		...
@@ -61,7 +61,7 @@
 		<application android:name="MyApplication"
 		...
 
-2.3 During runtime all activities that goes to foreground should be registered with AppBlast instance. There is two ways to do that.
+2.3. During runtime all activities that goes to foreground should be registered with AppBlast instance. There is two ways to do that.
 	- In each activity override onResume() and onPause() methods. And call AppBlast.getSharedInstance().setBlastPoint();
 
 		@Override
