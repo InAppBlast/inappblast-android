@@ -9,7 +9,7 @@
 
 2. Library can be used in application with minimal API level 8.
 
-3. Get your <project_key> string (just drop us an email to hi@pushpanel.io to get your key).
+3. Get your \<project_key\> string (just drop us an email to hi@pushpanel.io to get your key).
 
 4. Create subclass of Application class. Override onCreate method and initialize AppBlast in this method.
 
