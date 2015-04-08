@@ -1,4 +1,4 @@
-## Tutorial
+## Version 1.0
 
 1. Add library to project.
 	File -> Import... -> General -> Existing project into workspace.
