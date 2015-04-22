@@ -109,7 +109,7 @@ public class AppBlast implements OnMediaLoadedListener{
 	/**
 	 * Base server URL 
 	 */
-	private static final String URI_BASE = "http://api.pushpanel.io/v1";
+	private static final String URI_BASE = "https://api.inappblast.com/v1";
 	
 	
 	
